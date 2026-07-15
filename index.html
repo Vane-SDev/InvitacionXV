@@ -125,28 +125,21 @@
     box-shadow:0 0 6px 1px rgba(238,240,245,.35);
     animation-duration:4s;
   }
-  .hero .sparkle:nth-child(1){top:78%;left:12%;animation-delay:0s;}
-  .hero .sparkle:nth-child(2){top:85%;left:80%;animation-delay:.7s;}
-  .hero .sparkle:nth-child(3){top:90%;left:30%;animation-delay:1.4s;}
-  .hero .sparkle:nth-child(4){top:82%;left:60%;animation-delay:2.1s;}
-  .hero .sparkle:nth-child(5){top:88%;left:45%;animation-delay:1s;}
-  .hero .sparkle:nth-child(6){top:93%;left:70%;animation-delay:.4s;}
-  .hero .sparkle:nth-child(7){top:80%;left:22%;animation-delay:1.8s;}
 
   .hero .eyebrow{margin-bottom:14px;color:var(--plata-brillo);text-shadow:0 1px 8px rgba(0,0,0,.8);animation:fadeUp 1s ease both;}
 
   .hero-nombre{
     font-family:var(--display);
     font-size:clamp(3.8rem,20vw,9rem);
-    font-weight:400;line-height:.95;
+    font-weight:400;line-height:.8;
     letter-spacing:.06em;text-transform:uppercase;
-    filter:drop-shadow(0 3px 14px rgba(0,0,0,.75)) drop-shadow(0 1px 3px rgba(0,0,0,.6));
+    filter:drop-shadow(0 2px 7px rgba(0,0,0,.38));
     animation:fadeUp 1.2s ease .2s both;
   }
 
   .hero-xv{
     font-family:var(--body);
-    font-weight:200;
+    font-weight:300;
     font-size:clamp(1rem,6vw,2.5rem);
     letter-spacing:.6em;text-transform:uppercase;
     color:var(--plata-brillo);
@@ -156,7 +149,7 @@
   }
 
   .hero-frase{
-    max-width:420px;margin:0 auto 34px;
+    max-width:420px;margin:-20px auto 0;
     color:var(--texto);font-size:.92rem;
     text-shadow:0 1px 8px rgba(0,0,0,.9);
     animation:fadeUp 1.2s ease .6s both;
@@ -414,7 +407,7 @@
     section{padding:56px 18px;}
 
 
-    .eyebrow{letter-spacing:.35em;font-size:.6rem;}
+    .eyebrow{letter-spacing:.35em;font-size:.7rem;}
     .hero-xv{letter-spacing:.4em;}
 
 
@@ -480,9 +473,21 @@
 <header class="hero">
   <div class="hero-bg"></div>
 
-  <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-  <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
-  <div class="sparkle"></div>
+  <!-- destellos alrededor del nombre -->
+  <div class="sparkle" style="top:9%;left:14%;animation-delay:.5s;"></div>
+  <div class="sparkle mini" style="top:7%;left:72%;animation-delay:1.6s;"></div>
+  <div class="sparkle" style="top:14%;left:86%;animation-delay:.2s;"></div>
+  <div class="sparkle mini" style="top:17%;left:6%;animation-delay:2.3s;"></div>
+  <div class="sparkle" style="top:22%;left:78%;animation-delay:1.1s;"></div>
+  <div class="sparkle mini" style="top:24%;left:20%;animation-delay:.8s;"></div>
+  <div class="sparkle mini" style="top:11%;left:42%;animation-delay:2.8s;"></div>
+  <!-- destellos de la zona baja -->
+  <div class="sparkle" style="top:78%;left:12%;animation-delay:0s;"></div>
+  <div class="sparkle" style="top:85%;left:80%;animation-delay:.7s;"></div>
+  <div class="sparkle" style="top:90%;left:30%;animation-delay:1.4s;"></div>
+  <div class="sparkle" style="top:82%;left:60%;animation-delay:2.1s;"></div>
+  <div class="sparkle mini" style="top:88%;left:45%;animation-delay:1s;"></div>
+  <div class="sparkle mini" style="top:93%;left:70%;animation-delay:.4s;"></div>
 
   <div class="hero-top">
     <p class="eyebrow">Te invito a celebrar</p>
@@ -612,7 +617,7 @@
   <div class="sparkle mini" style="top:70%;left:10%;animation-delay:1.8s;"></div>
 
   <div class="ornamento"><span>✦</span></div>
-  <p class="eyebrow center" style="margin-top:20px;">Si querés regalar</p>
+  <p class="eyebrow center" style="margin-top:20px;">Si querés regalarme</p>
   <h2 class="section-title metal">Regalos</h2>
   <div class="regalo-card">
     <p class="intro">Tu presencia es el regalo más lindo que me podés hacer. Pero si además querés tener un gesto conmigo, te dejo mis datos por si te gustaría sumarte:</p>
