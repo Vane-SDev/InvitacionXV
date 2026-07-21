@@ -24,7 +24,7 @@
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
+  html{scroll-behavior:smooth;background:var(--negro)}
 
   body{
     font-family:var(--body);
@@ -88,12 +88,12 @@
     min-height:100svh; 
     display:flex;flex-direction:column;align-items:center;justify-content:space-between;
     text-align:center;position:relative;overflow:hidden;
-    isolation:isolate; /* crea stacking context: contiene el z-index:-1 de la foto */
+    isolation:isolate; 
     background:var(--negro);
     padding:48px 24px 84px;
   }
 
-  /* la foto vive en su propia capa para poder animarla (efecto Ken Burns) */
+
   .hero-bg{
     position:absolute;
     inset:0;
@@ -105,13 +105,13 @@
     transition:transform 7s cubic-bezier(.22,.61,.36,1);
     will-change:transform;
   }
-  /* cuando se entra desde la bienvenida, la foto hace un zoom-out lento y sutil */
+
   body.iniciada .hero-bg{transform:scale(1);}
 
   .hero-top{display:flex;flex-direction:column;align-items:center;}
   .hero-bottom{margin-top:auto;}
 
-  /* destellos tipo bola de espejos — reutilizables en cualquier sección */
+
   .sparkle{
     position:absolute;width:3px;height:3px;border-radius:50%;
     background:var(--plata-brillo);
@@ -275,19 +275,18 @@
   .btn-copiar:hover{background:var(--plata);color:var(--negro);}
 
   /* ============ CIERRE ============ */
-  .cierre{background-color:rgba(10,10,12,.35);text-align:center;padding:90px 24px;}
-  /* marca de agua: la misma foto del hero (ya cacheada, no descarga nada extra),
-     en blanco y negro y casi transparente, desvanecida hacia los bordes */
+  .cierre{background-color:rgba(10,10,12,.35);text-align:center;height:fit-content; padding:90px 24px;}
+
   .cierre::before{
     content:"";
     position:absolute;
     inset:0;
     background:url('foto-jose-color.jpg') center 25%/cover;
     filter:grayscale(1);
-    opacity:.07;
+    opacity:.13;
     pointer-events:none;
-    -webkit-mask-image:radial-gradient(ellipse 80% 90% at 50% 50%, black 40%, transparent 100%);
-    mask-image:radial-gradient(ellipse 80% 90% at 50% 50%, black 40%, transparent 100%);
+    -webkit-mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transparent 92%);
+mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transparent 92%);
   }
   .cierre > *{position:relative;z-index:1;}
   .cierre h2{
@@ -551,8 +550,7 @@
   <p class="eyebrow center" style="margin-top:20px;">¿Dónde es?</p>
   <h2 class="section-title metal">Ubicación</h2>
   <div class="mapa-wrap">
-    <!-- IMPORTANTE: pedile al cliente el link exacto de Google Maps del salón.
-         "Ruta 188 km 791" -->
+
     <iframe
       src="https://www.google.com/maps?q=La+Bodega+Ruta+188+km+791+General+Alvear+Mendoza&output=embed"
       loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -674,8 +672,8 @@
 
   const FECHA_EVENTO = new Date(2026, 7, 29, 21, 0, 0).getTime();
 
-  // REEMPLAZAR: pegá acá la URL /exec que te genera Google Apps Script
-  const URL_GOOGLE_SHEETS = "PEGAR_URL_DE_APPS_SCRIPT_ACA";
+
+  const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbwtGC18J6S6Tl3F5PYsRq3U046JT_PtGW37b3UvWHcEJ9tKCeukPUZX4EDk-_Vc1NzI2A/exec";
 
   /* ====== COUNTDOWN ====== */
   function actualizarCountdown(){
