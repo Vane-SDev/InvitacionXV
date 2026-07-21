@@ -534,7 +534,7 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
     </div>
     <div class="evento-card">
       <div class="icon">🕘</div>
-      <h3>21:00 hs</h3>
+      <h3>21:30 hs</h3>
     </div>
     <div class="evento-card">
       <div class="icon">📍</div>
@@ -552,7 +552,7 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
   <div class="mapa-wrap">
 
     <iframe
-      src="https://www.google.com/maps?q=La+Bodega+Ruta+188+km+791+General+Alvear+Mendoza&output=embed"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3269.2137504837915!2d-67.64770571720486!3d-34.97631030274914!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96781173751ffda7%3A0x7f2266a7679d1338!2sCaba%C3%B1a%20La%20Bodega!5e0!3m2!1ses!2sar!4v1784665891105!5m2!1ses!2sar" 
       loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   <div class="center">
@@ -657,9 +657,7 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
   <p>Con amor, Jose 🤍</p>
 </section>
 
-<!-- <footer>
-<a href="#" target="_blank">VS WebDev</a> · Disponible hasta un mes después del evento
-</footer> -->
+
 
 <!-- ============ BOTÓN MÚSICA ============ -->
 <button class="music-btn" id="musicBtn" aria-label="Reproducir música">♪</button>
@@ -670,7 +668,7 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
 
 <script>
 
-  const FECHA_EVENTO = new Date(2026, 7, 29, 21, 0, 0).getTime();
+  const FECHA_EVENTO = new Date(2026, 7, 29, 21, 30, 0).getTime();
 
 
   const URL_GOOGLE_SHEETS = "https://script.google.com/macros/s/AKfycbwtGC18J6S6Tl3F5PYsRq3U046JT_PtGW37b3UvWHcEJ9tKCeukPUZX4EDk-_Vc1NzI2A/exec";
@@ -706,7 +704,7 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
   function entrar(conMusica){
     bienvenida.classList.add('oculta');
     document.body.style.overflow = '';
-    document.body.classList.add('iniciada'); // dispara el zoom-out lento de la foto
+    document.body.classList.add('iniciada'); 
     if (conMusica){
       music.play().catch(()=>{});
       musicBtn.textContent = '⏸';
