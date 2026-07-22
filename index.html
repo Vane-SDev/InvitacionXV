@@ -476,7 +476,7 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
   <p class="bienvenida-sub">Mis XV Años</p>
   <p class="bienvenida-nota">La música de fondo es parte de la experiencia</p>
   <div class="bienvenida-botones">
-    <button class="btn-plata" id="btnConMusica">♪ &nbsp;Ingresar con música</button>
+    <button class="btn-plata" id="btnConMusica"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px;"><path d="M9 17.5V5.5l10-1.8v11.6"/><ellipse cx="6.8" cy="17.6" rx="2.2" ry="1.6" transform="rotate(-18 6.8 17.6)"/><ellipse cx="16.8" cy="15.4" rx="2.2" ry="1.6" transform="rotate(-18 16.8 15.4)"/></svg>Ingresar con música</button>
     <button class="btn-outline" id="btnSinMusica">Ingresar sin música</button>
   </div>
 </div>
@@ -541,7 +541,14 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
   <h2 class="section-title metal">El gran día</h2>
   <div class="evento-grid">
     <div class="evento-card">
-      <div class="icon">📅</div>
+      <div class="icon">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#d3d5dd" stroke-width="1.5">
+    <rect x="3" y="5" width="18" height="16" rx="2"/>
+    <line x1="3" y1="9" x2="21" y2="9"/>
+    <line x1="8" y1="3" x2="8" y2="6"/>
+    <line x1="16" y1="3" x2="16" y2="6"/>
+  </svg>
+</div>
       <h3>Sábado 29 de Agosto</h3>
       <p>2026</p>
     </div>
@@ -594,14 +601,14 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
   </p>
 
   <form class="rsvp-form" id="rsvpForm">
-    <div>
+    <!-- <div>
       <label for="tipo">¿Cómo venís?</label>
       <select id="tipo" name="tipo" required>
         <option value="">Elegí una opción</option>
         <option value="Familia">En familia</option>
         <option value="Individual">Solo/a o con pareja</option>
       </select>
-    </div>
+    </div> -->
     <div>
       <label for="nombre" id="labelNombre">Nombre y apellido</label>
       <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
@@ -672,13 +679,15 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
 
   <div class="ornamento"><span>✦</span></div>
   <h2 class="metal">¡Te espero!</h2>
-  <p>Con amor, Jose 🤍</p>
+  <p>Jose 🤍</p>
 </section>
 
 
 
 <!-- ============ BOTÓN MÚSICA ============ -->
-<button class="music-btn" id="musicBtn" aria-label="Reproducir música">♪</button>
+<button class="music-btn" id="musicBtn" aria-label="Reproducir música">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f2f3f8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17.5V5.5l10-1.8v11.6"/><ellipse cx="6.8" cy="17.6" rx="2.2" ry="1.6" transform="rotate(-18 6.8 17.6)"/><ellipse cx="16.8" cy="15.4" rx="2.2" ry="1.6" transform="rotate(-18 16.8 15.4)"/></svg>
+</button>
 
 <audio id="bgMusic" loop>
   <source src="EdSheeran.mpeg" type="audio/mpeg">
@@ -725,7 +734,7 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
     document.body.classList.add('iniciada'); 
     if (conMusica){
       music.play().catch(()=>{});
-      musicBtn.textContent = '⏸';
+      musicBtn.innerHTML = ICONO_PAUSA;
       musicBtn.classList.add('playing');
       sonando = true;
     }
@@ -734,17 +743,19 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
   btnSinMusica.addEventListener('click', ()=> entrar(false));
 
   /* ====== MÚSICA  ====== */
+const ICONO_NOTA = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f2f3f8" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 17.5V5.5l10-1.8v11.6"/><ellipse cx="6.8" cy="17.6" rx="2.2" ry="1.6" transform="rotate(-18 6.8 17.6)"/><ellipse cx="16.8" cy="15.4" rx="2.2" ry="1.6" transform="rotate(-18 16.8 15.4)"/></svg>';
+  const ICONO_PAUSA = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f2f3f8" stroke-width="1.6" stroke-linecap="round"><line x1="9.5" y1="5.5" x2="9.5" y2="18.5"/><line x1="14.5" y1="5.5" x2="14.5" y2="18.5"/></svg>';
   const music = document.getElementById('bgMusic');
   const musicBtn = document.getElementById('musicBtn');
   let sonando = false;
   musicBtn.addEventListener('click',()=>{
     if(sonando){
       music.pause();
-      musicBtn.textContent = '♪';
+      musicBtn.innerHTML = ICONO_NOTA;      // ← sin comillas: es la constante
       musicBtn.classList.remove('playing');
     } else {
       music.play().catch(()=>{});
-      musicBtn.textContent = '⏸';
+      musicBtn.innerHTML = ICONO_PAUSA;     // ← ídem
       musicBtn.classList.add('playing');
     }
     sonando = !sonando;
@@ -760,19 +771,9 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
   }
 
   /* ====== ETIQUETA DINÁMICA SEGÚN TIPO (Familia / Individual) ====== */
-  const tipoSelect = document.getElementById('tipo');
   const labelNombre = document.getElementById('labelNombre');
   const inputNombre = document.getElementById('nombre');
 
-  tipoSelect.addEventListener('change', () => {
-    if (tipoSelect.value === 'Familia') {
-      labelNombre.textContent = 'Apellido de la familia';
-      inputNombre.placeholder = 'Ej: Familia Gomez';
-    } else {
-      labelNombre.textContent = 'Nombre y apellido';
-      inputNombre.placeholder = 'Tu nombre completo';
-    }
-  });
 
   /* ====== VALIDACIÓN SEGÚN ASISTENCIA (Sí / No) ====== */
   const asistenciaSelect = document.getElementById('asistencia');
@@ -811,7 +812,7 @@ mask-image:radial-gradient(ellipse closest-side at 50% 50%, black 30%, transpare
     msg.textContent = '';
 
     const datos = {
-      tipo: form.tipo.value,
+      tipo: '-',
       nombre: form.nombre.value,
       asistencia: form.asistencia.value,
       acompanantes: noAsiste ? 0 : form.acompanantes.value,
